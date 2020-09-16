@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
 // const [click,setClick] = useState(false);
 
 function List(props) {
-  const [click, setClick] = useState(false);
-
-  function handleClick() {
-    setClick(!click);
-  }
-
   return (
     <div>
       <li
-        onClick={handleClick}
-        style={{ textDecorationLine: click ? "line-through" : null }}
+        onClick={function () {
+          props.onChecked(props.id);
+        }}
       >
         {props.item}
       </li>

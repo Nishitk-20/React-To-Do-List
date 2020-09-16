@@ -11,6 +11,14 @@ function App() {
     setI(k);
   }
 
+  function deleteItem(id) {
+    setItems(
+      items.filter(function (item, index) {
+        return index !== id;
+      })
+    );
+  }
+
   function addItem(event) {
     // const k = items;
     setItems([...items, i]);
@@ -31,8 +39,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map((item) => (
-            <List item={item} />
+          {items.map((item, index) => (
+            <List key={index} id={index} item={item} onChecked={deleteItem} />
           ))}
         </ul>
       </div>
