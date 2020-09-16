@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import List from "./List";
 
 function App() {
   const [i, setI] = useState("");
@@ -31,7 +32,7 @@ function App() {
       <div>
         <ul>
           {items.map((item) => (
-            <li>{item}</li>
+            <List item={item} />
           ))}
         </ul>
       </div>
